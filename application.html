@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply Now — TANEMIRT-TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html#hero" class="logo">
+        <img src="/assets/img/logo.png" alt="TANEMIRT-TECH" style="width: 100px; height: 40px;" />
+      </a>
+
+      <nav class="nav-pill" id="primary-nav">
+        <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+        <a href="index.html#hero" data-nav="hero">Home</a>
+        <a href="index.html#about" data-nav="about">About</a>
+        <a href="index.html#services" data-nav="services">Services</a>
+        <a href="index.html#portfolio" data-nav="portfolio">Portfolio</a>
+        <a href="index.html#team" data-nav="team">Team</a>
+        <a href="index.html#tech" data-nav="tech">Technologies</a>
+        <a href="index.html#contact" data-nav="contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="application.html" class="header-cta" aria-current="page">
+          <span>Apply Now</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"
+          aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="index.html#hero" style="--i:0">Home</a>
+      <a href="index.html#about" style="--i:1">About</a>
+      <a href="index.html#services" style="--i:2">Services</a>
+      <a href="index.html#portfolio" style="--i:3">Portfolio</a>
+      <a href="index.html#team" style="--i:4">Team</a>
+      <a href="index.html#tech" style="--i:5">Technologies</a>
+      <a href="index.html#contact" style="--i:6">Contact</a>
+      <a href="application.html" class="mobile-nav-cta" style="--i:7">Apply now</a>
+    </nav>
+  </header>
+
+  <!-- ============ Intro ============ -->
+  <section class="app-hero">
+    <div class="app-hero-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+    </div>
+    <div class="container app-hero-inner reveal">
+      <span class="app-hero-eyebrow">Join Us</span>
+      <h1>Apply now</h1>
+      <p>Fill in your details below and our team will contact you</p>
+    </div>
+    <svg class="app-hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,20 C960,40 1200,80 1440,30 L1440,80 L0,80 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <!-- ============ Application form ============ -->
+  <section class="contact" style="padding-top:0;">
+    <div class="container" style="max-width:640px;">
+      <form class="contact-form reveal" id="apply-form" novalidate>
+        <div class="row-2">
+          <div>
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Jane" required />
+          </div>
+          <div>
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Doe" required />
+          </div>
+        </div>
+        <div class="row-2">
+          <div>
+            <label for="app-email">Email address</label>
+            <input type="email" id="app-email" name="email" placeholder="jane@company.com" required />
+          </div>
+          <div>
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+213 550 90 49 08" />
+          </div>
+        </div>
+        <div>
+          <label for="account-type">Account type</label>
+          <input list="account-types" id="account-type" name="account-type" placeholder="Personal or Business" />
+          <datalist id="account-types">
+            <option value="Personal"></option>
+            <option value="Business"></option>
+          </datalist>
+        </div>
+        <div>
+          <label for="notes">Anything else we should know?</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Tell us about your needs..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="apply-submit">Submit application</button>
+        <p class="form-note" id="apply-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html#hero" class="logo">
+          <span class="logo-mark"><img src="assets/img/logo.png" style="width: 36px;" alt="TANEMIRT-TECH Logo" /></span>
+          TANEMIRT-TECH
+        </a>
+        <p>We turn bold ideas into reliable, high-performance digital products from concept to deployment.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M13.5 9H15V6.5h-1.8C11 6.5 10 7.6 10 9.6V11H8.5v2.5H10V21h2.6v-7.5H15l.4-2.5h-2.8v-1c0-.7.2-1 1-1Z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6.94 8.5H4V20h2.94V8.5ZM5.47 4a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4ZM20 13.4c0-3-1.6-4.4-3.75-4.4a3.2 3.2 0 0 0-2.9 1.6V8.5H10.4c.04.9 0 11.5 0 11.5h2.95v-6.4c0-.34.02-.68.12-.93.27-.68.9-1.4 1.94-1.4 1.37 0 1.92 1.04 1.92 2.57V20H20v-6.6Z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Zm0 5.9a2.3 2.3 0 1 1 0-4.6 2.3 2.3 0 0 1 0 4.6ZM16.5 6.5a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM12 4.3c2.4 0 2.7 0 3.6.05.9.04 1.5.18 1.9.35.5.2.86.44 1.24.82.38.38.62.75.82 1.25.17.4.31 1 .35 1.9.05.9.05 1.2.05 3.6s0 2.7-.05 3.6c-.04.9-.18 1.5-.35 1.9-.2.5-.44.86-.82 1.24-.38.38-.75.62-1.25.82-.4.17-1 .31-1.9.35-.9.05-1.2.05-3.6.05s-2.7 0-3.6-.05c-.9-.04-1.5-.18-1.9-.35a3.4 3.4 0 0 1-1.24-.82 3.4 3.4 0 0 1-.82-1.25c-.17-.4-.31-1-.35-1.9-.05-.9-.05-1.2-.05-3.6s0-2.7.05-3.6c.04-.9.18-1.5.35-1.9.2-.5.44-.86.82-1.24.38-.38.75-.62 1.25-.82.4-.17 1-.31 1.9-.35.9-.05 1.2-.05 3.6-.05Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About us</a></li>
+          <li><a href="index.html#team">Our team</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Custom Development</a></li>
+          <li><a href="index.html#services">Deployment &amp; Integration</a></li>
+          <li><a href="index.html#services">IT Consultancy</a></li>
+          <li><a href="index.html#services">Managed Solutions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <span class="footer-icon">&#128205;</span>
+            <span>03 Rue Mouloud Feraoun, Dar El Beïda 16003</span>
+          </li>
+          <li>
+            <span class="footer-icon">&#9742;</span>
+            <a href="tel:+213550904908">+213 550 90 49 08</a>
+          </li>
+          <li>
+            <span class="footer-icon">&#9993;</span>
+            <a href="mailto:contact@tanemirt-tech.com">contact@tanemirt-tech.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; TANEMIRT-TECH <span id="current-year"></span>. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <span>&middot;</span>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" aria-label="Back to top">&uarr;</button>
+
+  <script src="script.js"></script>
+  <script src="application.js"></script>
+</body>
+
+</html>

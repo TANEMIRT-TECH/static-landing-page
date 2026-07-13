@@ -265,15 +265,68 @@ function initCurrentYear() {
 }
 
 /* ---------- Contact & application forms ---------- */
+const CONTACT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykMG-L1r3Fmqs4XFJeUpGH8RBIRqKk53tKUeWhwhj6qNnagdI4WtVdT2x9FDxKmfUNew/exec";
+
 function initForms() {
   const contactForm = document.getElementById("contact-form");
   const formNote = document.getElementById("form-note");
+  const contactSubmit = document.getElementById("contact-submit");
 
   if (contactForm && formNote) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      formNote.textContent = "Thanks! Your message has been sent — we'll be in touch soon.";
-      contactForm.reset();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      formNote.textContent = "";
+      formNote.classList.remove("is-error", "is-success");
+
+      if (!name || !email || !message) {
+        formNote.textContent = "Please fill in your name, email, and message.";
+        formNote.classList.add("is-error");
+        return;
+      }
+
+      const payload = {
+        formType: "tanemirt-contact",
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+      };
+
+      if (contactSubmit) {
+        contactSubmit.disabled = true;
+        contactSubmit.textContent = "Sending...";
+      }
+
+      fetch(CONTACT_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.result === "success") {
+            formNote.textContent = "Thanks! Your message has been sent — we'll be in touch soon.";
+            formNote.classList.add("is-success");
+            contactForm.reset();
+          } else {
+            throw new Error("Unexpected response");
+          }
+        })
+        .catch(() => {
+          formNote.textContent = "Something went wrong. Please try again or email us directly.";
+          formNote.classList.add("is-error");
+        })
+        .finally(() => {
+          if (contactSubmit) {
+            contactSubmit.disabled = false;
+            contactSubmit.textContent = "Send Message";
+          }
+        });
     });
   }
 

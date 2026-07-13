@@ -499,9 +499,9 @@ button {
   100% { box-shadow: 0 0 0 0 rgba(167, 240, 255, 0); }
 }
 
-.hero-split-copy h2 {
+.hero-split-copy h1 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   font-size: clamp(32px, 4.6vw, 52px);
   line-height: 1.15;
   color: #ffffff;
@@ -509,9 +509,9 @@ button {
   max-width: 480px;
 }
 
-.hero-split-copy h2 em {
+.hero-split-copy h1 em {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .hero-split-copy p {
@@ -2746,3 +2746,98 @@ button {
 
 
 
+
+/* ============ Application page: intro banner ============ */
+
+.app-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #0089c2 0%, #00aeef 55%, #4ec5ff 100%);
+  padding: 64px 0 90px;
+  text-align: center;
+}
+
+.app-hero-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.app-hero-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.app-hero-inner h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(30px, 4.4vw, 44px);
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.app-hero-inner p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.app-hero-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 70px;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .app-hero {
+    padding: 52px 0 70px;
+  }
+}
+
+/* ============ Form status note (success / error) ============ */
+
+.form-note.is-error {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.form-note.is-success {
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* ============ intl-tel-input: align with form styling ============ */
+
+.iti {
+  width: 100%;
+}
+
+.iti input {
+  width: 100%;
+}
+
+#apply-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+}
