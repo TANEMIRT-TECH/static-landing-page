@@ -38,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -46,6 +47,7 @@ body {
   color: var(--ink);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -223,6 +225,7 @@ button {
   font-size: 14px;
   font-weight: 600;
   color: var(--ink-soft, #55536e);
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
@@ -391,6 +394,47 @@ button {
 
   .nav-toggle {
     display: flex;
+  }
+}
+
+/* ---- Squeeze zone just above the mobile breakpoint: the pill nav's
+   7 links (incl. "Technologies") can get tight on laptop/tablet-landscape
+   widths right before the hamburger takes over at 980px. Compact it
+   instead of letting it wrap or overflow. Inert below 980px since the
+   pill is display:none there anyway. ---- */
+@media (max-width: 1180px) {
+  .nav-pill {
+    gap: 0;
+  }
+
+  .nav-pill a {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+
+  .header-cta {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+
+  .header-inner {
+    gap: 16px;
+  }
+}
+
+/* ---- Very narrow phones: trim the header CTA + gap so the logo,
+   "Apply Now" pill and hamburger never overflow the viewport. ---- */
+@media (max-width: 480px) {
+  .header-cta span {
+    font-size: 12.5px;
+  }
+
+  .header-cta {
+    padding: 8px 12px;
+  }
+
+  .header-inner {
+    gap: 10px;
   }
 }
 
@@ -1283,8 +1327,13 @@ button {
 
   .expand-panel {
     flex: none;
-    height: 74px;
-    transition: height 0.4s ease, border-color 0.4s ease;
+    /* Was a fixed 74px, which is shorter than the icon row + title it
+       always shows on touch devices (title is forced horizontal below),
+       so panels got their own content clipped by overflow:hidden.
+       height:auto + min-height lets it size to its real content. */
+    height: auto;
+    min-height: 96px;
+    transition: min-height 0.4s ease, border-color 0.4s ease;
   }
 
   .expand-panel:hover,
@@ -2145,6 +2194,13 @@ button {
   }
 }
 
+@media (max-width: 400px) {
+  .tech-tab {
+    padding: 10px 10px;
+    font-size: 12.5px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tech-item,
   .tech-tab-indicator,
@@ -2687,9 +2743,10 @@ button {
 }
 
 @media (max-width: 640px) {
-  .logo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* NOTE: .logo-grid already goes to a single column at 768px (see the
+     About section rules above) — it must not be re-widened to 2 columns
+     here, or phones (<=640px) would show 2 cramped columns while
+     tablets (641-768px) correctly show 1. */
 
   .services-grid,
   .portfolio-grid,
